@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEDDY</title>
+    <title>PEDDY Web Sites</title>
+    <link rel="shortcut icon" href="./assests/logo.webp" type="image/x-icon">
 
     <!-- Google font url -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,11 +18,15 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/53ea01123b.js" crossorigin="anonymous"></script>
+
     <!-- custom style -->
     <style>
         .lato-font {
             font-family: "Lato", sans-serif;
         }
+        /* html{scroll-behavior: smooth} */
     </style>
 
 </head>
@@ -33,16 +38,8 @@
             <nav class="w-[90%] mx-auto">
                 <div class="navbar bg-base-100">
                     <div class="navbar-start">
-                        <div class="dropdown">
-                            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 6h16M4 12h8m-8 6h16" />
-                                </svg>
-                            </div>
-                        </div>
-                        <a class="btn btn-ghost gap-x-3"> <img src="./assests/logo.webp" alt=""><span class="text-2xl font-black">PEDDY</span></a>
+                        <a class="btn btn-ghost gap-x-3"> <img src="./assests/logo.webp" alt=""><span
+                                class="text-2xl font-black">PEDDY</span></a>
                     </div>
                     <div class="navbar-center hidden lg:flex">
                         <ul class="menu menu-horizontal px-1">
@@ -52,8 +49,9 @@
                         </ul>
                     </div>
                     <div class="navbar-end ">
-                        <p class="border h-8 w-8 border-5 border-[#0E7A8133] rounded-full flex justify-center items-center">
-                            <img class="h-5 w-5" src="https://img.icons8.com/ios/80/gender-neutral-user.png" alt="">
+                        <p
+                            class="border h-9 w-9 border-5 border-[#0E7A8133] rounded-full flex justify-center items-center">
+                            <img class="h-6 w-6" src="https://img.icons8.com/ios/80/gender-neutral-user.png" alt="">
                         </p>
                     </div>
                 </div>
@@ -62,7 +60,23 @@
         <!-- navbar ends -->
 
         <!-- banner section starts -->
-        <section>
+        <section class="w-[90%] mx-auto pt-5">
+            <div>
+                <!-- banner text -->
+                <div class="lg:px-72 text-center space-y-6 ">
+                    <h5 class="text-2xl	font-bold">Bringing Families Together 🔥</h5>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl	font-black">Your Path to Adoption Starts Here</h1>
+                    <p> It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                        <a href="#view-more-click"><button class="bg-[#0E7A81] px-8 py-4 text-white font-bold text-xl rounded-xl mt-2">View More</button>
+                        </a>
+                </div>
+
+                <!-- banner images -->
+                <div class="flex justify-center items-center pt-12">
+                    <img src="./assests/pet.webp" alt="">
+                </div>
+            </div>
 
         </section>
         <!-- banner section ends -->
@@ -70,12 +84,151 @@
 
     </header>
 
-    <main></main>
+    <main id="view-more-click">
+        <section class="w-[90%] mx-auto ">
+            <div class="text-center mt-10 ">
+                <h3 class="text-4xl font-black pb-3">Adopt Your Best Friend</h3>
+                <p class="lg:px-96">It is a long established fact that a reader will be distracted by the readable
+                    content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
 
-    <footer></footer>
+            <!-- Dynamic Button (Cat, Dog, Rabbit, Bird) -->
+            <div id="categories" class="flex justify-center flex-wrap mt-7 lg:gap-32 md:gap-10 gap-10 py-3"></div>
+            <!-- <div id="categories" class="items-center justify-center grid grid-cols-2 md:grid-cols-4 mt-7 lg:gap-32 md:gap-20 gap-7 py-3"> -->
+
+            <!-- <div id="videos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10"> -->
+
+            <div class="flex justify-between items-center">
+                <span class="text-xl md:text-2xl font-black">Best Deal For You</span>
+                <button id="sort-by-price" class="bg-[#0E7A81] px-4 py-2 md:px-6 md:py-4 text-white font-bold text-lg rounded-xl">Sort By Price</button>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-4 mt-2 md:mt-5 grid-cols-1 lg:grid-cols-12">
+                <!-- First div: Cards taking 9 columns on medium and larger devices, full width on small devices -->
+                <div id="cards"
+                    class="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:mb-10 border rounded-lg p-2">
+                    <!-- Card 1 -->
+                    <div class="border rounded-lg p-4">
+                        <!-- Content for Card 1 -->
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="border rounded-lg p-4">
+                        <!-- Content for Card 2 -->
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="border rounded-lg p-4">
+                        <!-- Content for Card 3 -->
+                    </div>
+                </div>
+            
+                <!-- Second div: Taking 3 columns for medium and large devices, full width on small devices -->
+                <div class="col-span-12 md:col-span-3 border rounded-lg p-4">
+                    <p id="no-pet" class="text-center text-gray-500">No favorite pet selected yet!</p>
+                    <div id="liked-pet" class="grid grid-cols-2 gap-2">
+                        <!-- <p id="no-pet">No favorite pet selected yet!</p> -->
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+
+         <!-- Main content displaying the pet cards -->
+    <div id="pet-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6"></div>
+
+    <!-- Details Modal -->
+    <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="modal-content">
+                <!-- Content dynamically injected by JavaScript -->
+            </div>
+            <div class="modal-action">
+                <button class="btn w-full" onclick="document.getElementById('customModal').close()">Cancel</button>
+            </div>
+        </div>
+    </dialog>
+
+        <!-- adopt modal -->
+        <dialog id="adoptModal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="adopt-modal-content">
+                    <!-- Content for adopt modal will be injected here -->
+                </div>
+                <div class="modal-action">
+                    <form method="dialog">
+
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+    </main>
+
+
+    <!-- Footer section starts here -->
+    <footer class="w-full bg-black mt-8">
+        <section class="container lg:w-11/12 mx-auto py-20 flex lg:justify-between lg:flex-row flex-col gap-12 lg:px-0 px-10">
+          
+          <!-- Left side content -->
+          <div class="left-side-content text-white flex flex-col gap-2 items-start">
+            <a class="flex items-center gap-2" href="index.html">
+              <img src="./assests/logo.webp" alt="Logo">
+              <span class="text-2xl md:text-3xl font-extrabold text-white">Peddy</span>
+            </a> 
+            <div class="info mt-6 flex flex-col gap-1">
+              <p class="text-sm text-gray-400">Location: av. Washington 165, NY CA 54003</p>
+              <p class="text-sm text-gray-400">Phone: +31 85 964 47 25</p>
+              <p class="text-sm text-gray-400">Email: info@yourdomain.com</p>
+              <p class="text-sm text-gray-400">Openings hours: 9.00 AM - 5.00 PM</p>
+            </div>
+            <div class="icons flex items-center gap-4 mt-2">
+              <a href="#"><img class="w-8" src="./assests/facebook.jpg" alt=""></a>
+              <a href="#"><img class="w-8" src="./assests/twitter.jpg" alt=""></a>
+              <a href="#"><img class="w-8" src="./assests/youtube.jpg" alt=""></a>
+              <a href="#"><img class="w-8" src="./assests/insta.jpg" alt=""></a>
+            </div> 
+          </div>
+          
+          <!-- Links -->
+          <div class="flex flex-col gap-5">
+            <h2 class="text-lg font-bold text-white">Useful Links</h2>
+            <ul class="text-gray-400 flex flex-col gap-3">
+              <li><a href="">Home</a></li>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Animals</a></li>
+              <li><a href="">Foundation</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+          </div>
+      
+          <!-- Drop a Message Section -->
+          <div class="text-white flex flex-col gap-2 items-start">
+            <h2 class="text-xl lg:text-xl font-bold text-white mb-8">Drop Message</h2>
+            
+            <div class="flex items-center gap-2  w-full p-2 rounded bg-gray-800">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="h-4 w-4 text-white">
+                <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+              </svg>
+              <input class="w-full bg-transparent text-white placeholder-opacity-60 placeholder-white outline-none font-inter" type="text" placeholder="Enter your email" />
+            </div>
+            
+            <div class="subscribe-btn mt-4 w-full">
+              <button class="btn w-full bg-[#0E7A81] border-none">
+                <a class="px-8 py-4 text-white font-bold" href="#">Subscribe</a>
+              </button>
+            </div>
+          </div>
+        </section>
+      </footer>
+       <!-- Footer section ends here -->
 
     <!-- js file -->
     <script src="./js/pet.js"></script>
 </body>
-
 </html>
+
