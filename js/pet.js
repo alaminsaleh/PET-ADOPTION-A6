@@ -25,32 +25,12 @@ const filterPetsByCategory = (category) => {
             .then(data => {
                 // Filter pets by category
                 const filteredPets = data.pets.filter(pet => pet.category === category);
-
                 // Display filtered pets after the loading animation
                 displayCard(filteredPets);
             })
             .catch((error) => console.log(error));
-    }, 1000); // 2-second delay to simulate loading
+    }, 2000); 
 };
-
-
-// // Sort function by price (descending)
-// const sortByPriceDescending = (pets) => {
-//     return pets.sort((a, b) => b.price - a.price);  // Sort in descending order
-// };
-
-// // Event listener for the 'Sort By Price' button
-// document.getElementById('sort-by-price').addEventListener('click', () => {
-//     fetch('https://openapi.programming-hero.com/api/peddy/pets')
-//         .then((res) => res.json())
-//         .then(data => {
-//             const sortedPets = sortByPriceDescending(data.pets); // Sort pets by price
-//             displayCard(sortedPets);  // Display sorted pets
-//         })
-//         .catch((error) => console.log(error));
-// });
-
-
 
 // Add an event listener to the 'Sort By Price' button
 document.getElementById('sort-by-price').addEventListener('click', () => {
@@ -62,7 +42,7 @@ document.getElementById('sort-by-price').addEventListener('click', () => {
         </div>
     `;
 
-    // Simulate a delay (2 seconds) for the sorting process
+    // 2 seconds for the sorting process
     setTimeout(() => {
         // Fetch the pets again (or use the already fetched data)
         fetch('https://openapi.programming-hero.com/api/peddy/pets')
@@ -75,36 +55,26 @@ document.getElementById('sort-by-price').addEventListener('click', () => {
                 displayCard(sortedPets);
             })
             .catch(error => console.log(error));
-    }, 1000); // Simulating a 2-second delay
+    }, 2000);
 });
-
-// The 'displayCard' function remains the same, as it is used to render the sorted cards.
-
-
-
 
 // card shows
 const loadCard = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
         .then((res) => res.json())
-        .then(data => displayCard(data.pets))  // Pass pets data to displayCard function
+        .then(data => displayCard(data.pets))  
         .catch((error) => console.log(error));
 };
 
-
-// details Modal ❌❌❌❌
+// details Modal 
 const loadDetails = async (details) => {
-    console.log(details);
     const uri = `https://openapi.programming-hero.com/api/peddy/category/${details}`;
     const res = await fetch(uri);
     const data = await res.json();
-    console.log(data);
     displayDetails(data.data[0]);
-    // console.log(data.data[0]);
-}
+};
 
 const displayDetails = (detail) => {
-    console.log(detail);
     const detailContainer = document.getElementById('modal-content');
     document.getElementById('customModal').showModal();
     detailContainer.innerHTML = `
@@ -128,60 +98,41 @@ const displayDetails = (detail) => {
 }
 
 
-
-
-
-
-
-
-// Adopt Modal ❌❌❌❌✅✅✅
-
-// Function to open the Adopt Modal
+// Adopt Modal 
 const showAdoptModal = () => {
     const adoptModal = document.getElementById('adoptModal');
     const adoptContent = document.getElementById('adopt-modal-content');
 
-    // Inject the adopt modal content dynamically with countdown placeholder
     adoptContent.innerHTML = `
         <div class="flex flex-col justify-center items-center">
-        <img class="" src="https://img.icons8.com/?size=80&id=JDJpJPFVUvFU&format=png" />
-        <h2>Congratulates!</h2>
-        <p>Adoption Process is Starting for your Pet.</p>
-        <p id="countdown">3</p>
+        <img class="mb-1" src="https://img.icons8.com/?size=80&id=JDJpJPFVUvFU&format=png" />
+        <h2 class="text-2xl mb-1 font-bold">Congratulates!</h2>
+        <p class="mb-1">Adoption Process is Starting for your Pet.</p>
+        <p class="font-bold text-2xl" id="countdown">3</p>
         </div>
     `;
 
     // Show the modal
     adoptModal.showModal();
 
-    // Countdown logic: 3 to 1
+    // Countdown
     let countdown = 3;
-    const countdownElement = document.getElementById('countdown'); // Get the countdown element
+    const countdownElement = document.getElementById('countdown'); 
 
     const countdownInterval = setInterval(() => {
         countdown--;
-        countdownElement.textContent = `${countdown}`; // Update the countdown text
+        countdownElement.textContent = `${countdown}`; // Update countdown 
 
-        // When countdown reaches 0, stop the interval and close the modal
         if (countdown === 0) {
-            clearInterval(countdownInterval); // Stop the countdown interval
-            adoptModal.close(); // Automatically close the modal
+            clearInterval(countdownInterval); 
+            adoptModal.close(); 
         }
-    }, 1000); // Update the countdown every 1 second
+    }, 1000);
 };
-
-// ❌❌❌❌❌❌❌❌❌❌❌
-
-
-
-
-
-
-
 
 // Add the likedPet function
 const likedPet = (id) => {
-    const noLiked = document.getElementById('no-pet').classList.add('hidden'); // Hide the 'No favorite pet' message
+    const noLiked = document.getElementById('no-pet').classList.add('hidden'); 
     const likedPetContainer = document.getElementById('liked-pet');
 
     // Create a new div for the liked pet
@@ -189,14 +140,14 @@ const likedPet = (id) => {
     div.innerHTML = `
         <img src="${id}" alt="Pet image" class="rounded-lg w-40 h-auto"/>
     `;
-    likedPetContainer.appendChild(div); // Append the new pet image to the liked pet container
+    likedPetContainer.appendChild(div);
 }
 
 
 // Updated displayCard function
 const displayCard = (pets) => {
     const cardContainer = document.getElementById('cards');
-    cardContainer.innerHTML = ''; // Clear any existing cards
+    cardContainer.innerHTML = ''; 
 
     if (pets.length == 0) {
         cardContainer.classList.remove("grid");
@@ -249,7 +200,6 @@ const displayCard = (pets) => {
 const displayCategories = (data) => {
     const categoryContainer = document.getElementById('categories');
     
-    // Track the currently active button
     let activeButton = null;
   
     data.forEach(item => {
@@ -265,20 +215,17 @@ const displayCategories = (data) => {
             ${item.category} </span>
         </button>`;
   
-        // Add click event listener to each category button
+        // Add click event listener for category button
         buttonContainer.addEventListener('click', () => {
-            // Filter pets based on category
             filterPetsByCategory(item.category); 
-  
-            // Remove active state from the previous active button
+            // Remove active state 
             if (activeButton) {
                 activeButton.classList.remove('bg-[#e7f9f7]', 'rounded-full');
-                activeButton.classList.add('rounded-lg'); // Reset to original shape
+                activeButton.classList.add('rounded-lg');
             }
   
-            // Add active state to the clicked button (make it rounded-full)
             buttonContainer.classList.add('bg-[#e7f9f7]', 'rounded-full');
-            buttonContainer.classList.remove('rounded-lg'); // Ensure it doesn't have rounded corners
+            buttonContainer.classList.remove('rounded-lg'); 
 
             // Update the currently active button
             activeButton = buttonContainer;
@@ -288,9 +235,6 @@ const displayCategories = (data) => {
         categoryContainer.append(buttonContainer);
     });
 };
-
-
-
 
 // call the function
 loadCategories();

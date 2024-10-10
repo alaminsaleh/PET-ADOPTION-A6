@@ -26,9 +26,7 @@
         .lato-font {
             font-family: "Lato", sans-serif;
         }
-        /* html{scroll-behavior: smooth} */
     </style>
-
 </head>
 
 <body class="lato-font">
@@ -94,11 +92,7 @@
 
             <!-- Dynamic Button (Cat, Dog, Rabbit, Bird) -->
             <div id="categories" class="flex justify-center flex-wrap mt-7 lg:gap-32 md:gap-10 gap-10 py-3"></div>
-            <!-- <div id="categories" class="items-center justify-center grid grid-cols-2 md:grid-cols-4 mt-7 lg:gap-32 md:gap-20 gap-7 py-3"> -->
-
-            <!-- <div id="videos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10"> -->
-
-            <div class="flex justify-between items-center">
+             <div class="flex justify-between items-center">
                 <span class="text-xl md:text-2xl font-black">Best Deal For You</span>
                 <button id="sort-by-price" class="bg-[#0E7A81] px-4 py-2 md:px-6 md:py-4 text-white font-bold text-lg rounded-xl">Sort By Price</button>
             </div>
@@ -125,7 +119,6 @@
                 <div class="col-span-12 md:col-span-3 border rounded-lg p-4">
                     <p id="no-pet" class="text-center text-gray-500">No favorite pet selected yet!</p>
                     <div id="liked-pet" class="grid grid-cols-2 gap-2">
-                        <!-- <p id="no-pet">No favorite pet selected yet!</p> -->
                     </div>
                 </div>
             </div>
@@ -143,7 +136,7 @@
                 <!-- Content dynamically injected by JavaScript -->
             </div>
             <div class="modal-action">
-                <button class="btn w-full" onclick="document.getElementById('customModal').close()">Cancel</button>
+                <button class="btn w-full border border-[#0E7A8133] text-[#0E7A81] text-xl bg-[#0E7A8133] hover:bg-[#0E7A8133]" onclick="document.getElementById('customModal').close()">Cancel</button>
             </div>
         </div>
     </dialog>
@@ -161,13 +154,11 @@
                 </div>
             </div>
         </dialog>
-
     </main>
 
-
     <!-- Footer section starts here -->
-    <footer class="w-full bg-black mt-8">
-        <section class="container lg:w-11/12 mx-auto py-20 flex lg:justify-between lg:flex-row flex-col gap-12 lg:px-0 px-10">
+    <footer class="w-full bg-black mt-6">
+        <section class="container lg:w-11/12 mx-auto py-10 flex lg:justify-between md:flex-row flex-col gap-12 lg:px-0 px-10">
           
           <!-- Left side content -->
           <div class="left-side-content text-white flex flex-col gap-2 items-start">
@@ -201,10 +192,10 @@
             </ul>
           </div>
       
-          <!-- Drop a Message Section -->
+          <!-- Drop Message Section -->
           <div class="text-white flex flex-col gap-2 items-start">
             <h2 class="text-xl lg:text-xl font-bold text-white mb-8">Drop Message</h2>
-            
+
             <div class="flex items-center gap-2  w-full p-2 rounded bg-gray-800">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
