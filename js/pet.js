@@ -1,3 +1,12 @@
+// navbar function
+
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+
 // create the button 
 const loadCategories = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
@@ -29,7 +38,7 @@ const filterPetsByCategory = (category) => {
                 displayCard(filteredPets);
             })
             .catch((error) => console.log(error));
-    }, 2000); 
+    }, 2000);
 };
 
 // Add an event listener to the 'Sort By Price' button
@@ -49,7 +58,7 @@ document.getElementById('sort-by-price').addEventListener('click', () => {
             .then(res => res.json())
             .then(data => {
                 // Sort the pets by price in descending order
-                const sortedPets = data.pets.sort((a, b) => b.price - a.price); 
+                const sortedPets = data.pets.sort((a, b) => b.price - a.price);
 
                 // Display the sorted cards after the loading animation
                 displayCard(sortedPets);
@@ -62,7 +71,7 @@ document.getElementById('sort-by-price').addEventListener('click', () => {
 const loadCard = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
         .then((res) => res.json())
-        .then(data => displayCard(data.pets))  
+        .then(data => displayCard(data.pets))
         .catch((error) => console.log(error));
 };
 
@@ -73,6 +82,7 @@ const loadDetails = async (details) => {
     const data = await res.json();
     displayDetails(data.data[0]);
 };
+
 
 const displayDetails = (detail) => {
     const detailContainer = document.getElementById('modal-content');
@@ -93,7 +103,7 @@ const displayDetails = (detail) => {
     </div>
    </div>
      <P class="  mt-2 font-bold text-xl">Detailed Information:</p>
-     <p class="mt-1 italic text-gray-600">"${detail.pet_details}" </p>
+     <p class="mt-1 italic text-gray-600">"${detail.pet_details}"</p>
      `
 }
 
@@ -117,22 +127,22 @@ const showAdoptModal = () => {
 
     // Countdown
     let countdown = 3;
-    const countdownElement = document.getElementById('countdown'); 
+    const countdownElement = document.getElementById('countdown');
 
     const countdownInterval = setInterval(() => {
         countdown--;
         countdownElement.textContent = `${countdown}`; // Update countdown 
 
         if (countdown === 0) {
-            clearInterval(countdownInterval); 
-            adoptModal.close(); 
+            clearInterval(countdownInterval);
+            adoptModal.close();
         }
     }, 1000);
 };
 
 // Add the likedPet function
 const likedPet = (id) => {
-    const noLiked = document.getElementById('no-pet').classList.add('hidden'); 
+    const noLiked = document.getElementById('no-pet').classList.add('hidden');
     const likedPetContainer = document.getElementById('liked-pet');
 
     // Create a new div for the liked pet
@@ -147,7 +157,7 @@ const likedPet = (id) => {
 // Updated displayCard function
 const displayCard = (pets) => {
     const cardContainer = document.getElementById('cards');
-    cardContainer.innerHTML = ''; 
+    cardContainer.innerHTML = '';
 
     if (pets.length == 0) {
         cardContainer.classList.remove("grid");
@@ -199,13 +209,13 @@ const displayCard = (pets) => {
 
 const displayCategories = (data) => {
     const categoryContainer = document.getElementById('categories');
-    
+
     let activeButton = null;
-  
+
     data.forEach(item => {
         // Create button container
         const buttonContainer = document.createElement("div");
-        
+
         // Add Tailwind classes for normal and hover state
         buttonContainer.classList = "flex items-center gap-2 lg:gap-3 md:px-5 py-3 px-8 lg:px-8 lg:py-4 border border-[#3fafa5] rounded-lg hover:rounded-full hover:border-[#3fafa5] hover:bg-[#e7f9f7] transition-colors ease-in-out duration-300";
 
@@ -214,23 +224,23 @@ const displayCategories = (data) => {
         <span class="flex justify-center items-center gap-1 md:gap-3 md:px-4 lg:gap-2 lg:px-6 lg:w-[150px] md:w-[100px] sm:w-[80px]"><img src="${item.category_icon}" class="w-8 h-8">
             ${item.category} </span>
         </button>`;
-  
+
         // Add click event listener for category button
         buttonContainer.addEventListener('click', () => {
-            filterPetsByCategory(item.category); 
+            filterPetsByCategory(item.category);
             // Remove active state 
             if (activeButton) {
                 activeButton.classList.remove('bg-[#e7f9f7]', 'rounded-full');
                 activeButton.classList.add('rounded-lg');
             }
-  
+
             buttonContainer.classList.add('bg-[#e7f9f7]', 'rounded-full');
-            buttonContainer.classList.remove('rounded-lg'); 
+            buttonContainer.classList.remove('rounded-lg');
 
             // Update the currently active button
             activeButton = buttonContainer;
         });
-  
+
         // Add button to category container
         categoryContainer.append(buttonContainer);
     });
